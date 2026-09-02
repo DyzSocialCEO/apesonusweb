@@ -260,6 +260,9 @@ h2 {
   display: grid; place-items: end center;
   margin-bottom: -6%;
 }
+/* Shim is present on the first frame as a 1 KB blurred silhouette painted
+   from CSS; the real picture fades over it when it lands. */
+.shim { background: url("data:image/webp;base64,UklGRjoDAABXRUJQVlA4WAoAAAAQAAAAFwAAHwAAQUxQSCYCAAANuTJE9D9EUrNtciRH3nvvDVX+KSgK7733XmDnLoYfzZHhN3w3gJMpVmA7AB2XZSNXrGSWzwWwATSpADT8hq8CaJnmsnCPr0jEBEzAtAAw03ybrHXNLv8OuWmxderZMOxZjtujt8MCS11ywmnT3TXDMOQelcv6MyEudNGkGobJdENRz8NjRZ1PXgWmoXDHdWp2CzFnwkpKQ2h6hWbZbSmF+GsMnlOhBCiPPannsEpFxfuxzCGRUg39sSVagdSA4glVqTVAXPSD3J8S5uqMZ0wX+KgJxHlHVjvmrBaJc7k7p0+SgGirdI86Y8CFkFmV9Qoki2mz7KUKhirqZrAE8dYrlomqBCa1LIQ0gaXgULAKWNlBO2OaoIZUhAjQgipIbCZRZLCoCge2yIUDJ5hac2AAq8VYNUGttIEoC90sA6nB/XrHbpHaN5hRSROqRJTh50ETU/mTAQCR2H1SigpIuRhkradf2wDIRH/yiCqgQOhO9LvnAYBFa08+SVUAQKvx+K79FEA0ao6WFUMbiKuc249rE3L+RxxhJhUFWHr5CmWfXcz8588DZgOhMVX/dOqkQn757uMnrKIEFQU4+rgcfcLUz/JnzVBiEgiDoGF8pXK0dVhYrzAiDkydAkBKKT39VeYv2xxj5bXw9iv4oKEwkf/ux38BVW4M6sMalsL3QB0f6p0GY+iM9IKM6RPkTE+8phs8aeoR25n7UvYdmRvru0yyTjpWWtMDVlA4IO4AAACQBQCdASoYACAAPrVInUonJCKhsBgMAOAWiWIAqPWM+FCwHhHf2GQ+bGANAgMzZVXEa73IAAD+6PF6NV+hErHyKVgui+1ohz/RcAJo8/x/mRk5ArcoNmfpzl1rv4HeGFIUu4hyJErm29Pd2o/VsqwJuxrTO/i5mg4MHgzc40f/cPDPUCE/gz8HbppMwEPDFS0Bqc+BWg4ISuV81bIpKBONJDTKBQentsYe8SimCQ43y9SykWzkPEOOB8aabd5+9m4E41mpmOuPZXbRQ5UirV3GEH+4JdrvoNhH86w3Wh7s8BLyARen4RkrEWDxFwAA") center bottom / contain no-repeat; }
 .shim img {
   position: relative; z-index: 2;
   width: auto; height: 100%; max-width: 100%;
