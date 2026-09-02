@@ -44,9 +44,35 @@
 </head>
 <body>
   <main class="shell">
+    <!-- ATMOSPHERE. Painted layers only: opacity and transform, nothing that
+         measures or moves the copy. -->
     <div class="ambient ambient-a" aria-hidden="true"></div>
     <div class="ambient ambient-b" aria-hidden="true"></div>
+    <div class="ambient ambient-lime" aria-hidden="true"></div>
     <div class="grid" aria-hidden="true"></div>
+    <div class="market" aria-hidden="true">
+      <svg viewBox="0 0 1600 400" preserveAspectRatio="none">
+        <g class="candles">
+          <rect x="20" y="220" width="10" height="90" /><rect x="60" y="180" width="10" height="120" /><rect x="100" y="240" width="10" height="60" /><rect x="140" y="150" width="10" height="150" /><rect x="180" y="200" width="10" height="70" /><rect x="220" y="120" width="10" height="160" /><rect x="260" y="230" width="10" height="80" /><rect x="300" y="170" width="10" height="110" /><rect x="340" y="260" width="10" height="50" /><rect x="380" y="140" width="10" height="170" /><rect x="420" y="210" width="10" height="90" /><rect x="460" y="100" width="10" height="190" /><rect x="500" y="250" width="10" height="70" /><rect x="540" y="190" width="10" height="120" /><rect x="580" y="130" width="10" height="90" /><rect x="620" y="220" width="10" height="110" /><rect x="660" y="160" width="10" height="60" /><rect x="700" y="90" width="10" height="200" /><rect x="740" y="240" width="10" height="80" /><rect x="780" y="180" width="10" height="130" />
+          <rect x="820" y="220" width="10" height="90" /><rect x="860" y="180" width="10" height="120" /><rect x="900" y="240" width="10" height="60" /><rect x="940" y="150" width="10" height="150" /><rect x="980" y="200" width="10" height="70" /><rect x="1020" y="120" width="10" height="160" /><rect x="1060" y="230" width="10" height="80" /><rect x="1100" y="170" width="10" height="110" /><rect x="1140" y="260" width="10" height="50" /><rect x="1180" y="140" width="10" height="170" /><rect x="1220" y="210" width="10" height="90" /><rect x="1260" y="100" width="10" height="190" /><rect x="1300" y="250" width="10" height="70" /><rect x="1340" y="190" width="10" height="120" /><rect x="1380" y="130" width="10" height="90" /><rect x="1420" y="220" width="10" height="110" /><rect x="1460" y="160" width="10" height="60" /><rect x="1500" y="90" width="10" height="200" /><rect x="1540" y="240" width="10" height="80" /><rect x="1580" y="180" width="10" height="130" />
+        </g>
+        <path class="signal" d="M0 250 L120 230 L240 262 L360 190 L480 214 L600 150 L720 206 L840 172 L960 236 L1080 160 L1200 190 L1320 120 L1440 176 L1600 140" />
+      </svg>
+    </div>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <!-- MONITOR CHROME. Corner ticks and a status line, like a diagnostic
+         screen somebody left on. -->
+    <div class="corner corner-tl" aria-hidden="true"></div>
+    <div class="corner corner-tr" aria-hidden="true"></div>
+    <div class="corner corner-bl" aria-hidden="true"></div>
+    <div class="corner corner-br" aria-hidden="true"></div>
+
+    <div class="status" aria-label="Clinic status">
+      <span class="dot"></span>
+      <span>CLINIC STATUS · PUBLIC BETA</span>
+    </div>
 
     <section class="copy">
       <div class="eyebrow"><span class="dot"></span> PUBLIC BETA</div>
@@ -66,7 +92,7 @@
       </div>
 
       <a class="cta" href="https://music.apesonus.com/" aria-label="Enter the APESONUS Clinic">
-        ENTER THE CLINIC <span aria-hidden="true">→</span>
+        <span class="cta-label">ENTER THE CLINIC</span> <span class="cta-arrow" aria-hidden="true">→</span>
       </a>
 
       <div class="official">
@@ -78,13 +104,37 @@
 
     <section class="shim" aria-label="Shim Liquidation">
       <div class="halo" aria-hidden="true"></div>
+      <div class="halo halo-lime" aria-hidden="true"></div>
+      <div class="ring" aria-hidden="true"></div>
       <img src="assets/shim.webp" width="760" height="760" alt="Shim Liquidation, resident therapist at APESONUS" />
+      <div class="readout" aria-hidden="true">
+        <span>DIAGNOSIS</span>
+        <b>DEGENERATION CONFIRMED</b>
+      </div>
     </section>
 
     <div class="ecg" aria-hidden="true">
       <svg viewBox="0 0 800 80" preserveAspectRatio="none">
-        <path d="M0 41H176l10-1 11 1 18 0 12-16 14 35 17-51 18 32 15 0 13 0 10-10 12 20 13-10 12 0 18 0H800" />
+        <path class="ecg-base" d="M0 41H176l10-1 11 1 18 0 12-16 14 35 17-51 18 32 15 0 13 0 10-10 12 20 13-10 12 0 18 0H800" />
+        <path class="ecg-trace" d="M0 41H176l10-1 11 1 18 0 12-16 14 35 17-51 18 32 15 0 13 0 10-10 12 20 13-10 12 0 18 0H800" />
       </svg>
+    </div>
+
+    <!-- THE TICKER. Short lines in the Clinic's voice, moving slowly. The
+         list is duplicated so the loop never shows a gap. -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>THE CHART MOVED. THE PATIENT DID NOT.</span>
+        <span>ANOTHER POSITION HAS DEVELOPED SYMPTOMS.</span>
+        <span>PRESCRIPTIONS ARE BEING DISPENSED.</span>
+        <span>THE MARKET REMAINS UNSUPERVISED.</span>
+        <span>THE CLINIC IS OPEN.</span>
+        <span>THE CHART MOVED. THE PATIENT DID NOT.</span>
+        <span>ANOTHER POSITION HAS DEVELOPED SYMPTOMS.</span>
+        <span>PRESCRIPTIONS ARE BEING DISPENSED.</span>
+        <span>THE MARKET REMAINS UNSUPERVISED.</span>
+        <span>THE CLINIC IS OPEN.</span>
+      </div>
     </div>
   </main>
 
