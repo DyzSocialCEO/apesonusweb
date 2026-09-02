@@ -1,0 +1,11 @@
+{
+  "name": "apesonus-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "apesonus.com root website. Static front door for the APESONUS Entertainment Clinic.",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node -e \"require('fs').accessSync('index.html'); require('fs').accessSync('styles.css'); console.log('static site: nothing to build')\""
+  },
+  "engines": { "node": ">=18" }
+}

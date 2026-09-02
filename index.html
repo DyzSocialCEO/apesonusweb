@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APESONUS • The Entertainment Clinic for Crypto Degeneracy</title>
+  <meta name="description" content="APESONUS is a fictional entertainment clinic for crypto degeneracy — music, stories and culture from the wins, losses, conviction and chaos of the trenches." />
+  <link rel="canonical" href="https://apesonus.com/" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="theme-color" content="#050606" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="APESONUS" />
+  <meta property="og:url" content="https://apesonus.com/" />
+  <meta property="og:title" content="APESONUS • The Entertainment Clinic for Crypto Degeneracy" />
+  <meta property="og:description" content="APESONUS is a fictional entertainment clinic for crypto degeneracy — music, stories and culture from the wins, losses, conviction and chaos of the trenches." />
+  <meta property="og:image" content="https://apesonus.com/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="APESONUS — The Entertainment Clinic for Crypto Degeneracy" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ApeSonus" />
+  <meta name="twitter:title" content="APESONUS • The Entertainment Clinic for Crypto Degeneracy" />
+  <meta name="twitter:description" content="APESONUS is a fictional entertainment clinic for crypto degeneracy — music, stories and culture from the wins, losses, conviction and chaos of the trenches." />
+  <meta name="twitter:image" content="https://apesonus.com/assets/og-image.jpg" />
+
+  <link rel="icon" type="image/png" href="assets/icon-512.png" />
+  <link rel="apple-touch-icon" href="assets/icon-512.png" />
+  <link rel="preload" as="image" href="assets/shim.webp" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "APESONUS",
+    "url": "https://apesonus.com/",
+    "logo": "https://apesonus.com/assets/icon-512.png",
+    "description": "APESONUS is a fictional entertainment clinic for crypto degeneracy — music, stories and culture from the wins, losses, conviction and chaos of the trenches.",
+    "sameAs": ["https://x.com/ApeSonus"]
+  }
+  </script>
+</head>
+<body>
+  <main class="shell">
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+    <div class="grid" aria-hidden="true"></div>
+
+    <section class="copy">
+      <div class="eyebrow"><span class="dot"></span> PUBLIC BETA</div>
+      <h1>APESONUS</h1>
+      <h2>The entertainment clinic<br />for crypto degeneracy.</h2>
+      <p class="lede">Wins, losses and everything in between.</p>
+
+      <!--
+        TOKEN VERIFICATION AREA
+        To go live: paste the real, complete contract address between the quotes of
+        data-contract below (and optionally the ticker in data-ticker, e.g. "$SHIM").
+        Leave data-contract empty and the block keeps showing TOKEN — COMING SOON.
+        Never truncate or abbreviate the address.
+      -->
+      <div class="token" id="token" data-contract="" data-ticker="">
+        <span class="token-pending">TOKEN — COMING SOON</span>
+      </div>
+
+      <a class="cta" href="https://music.apesonus.com/" aria-label="Enter the APESONUS Clinic">
+        ENTER THE CLINIC <span aria-hidden="true">→</span>
+      </a>
+
+      <div class="official">
+        <a class="xlink" href="https://x.com/ApeSonus" target="_blank" rel="noopener noreferrer">X · @ApeSonus</a>
+      </div>
+
+      <p class="patients">WE ARE THE PATIENTS.</p>
+    </section>
+
+    <section class="shim" aria-label="Shim Liquidation">
+      <div class="halo" aria-hidden="true"></div>
+      <img src="assets/shim.webp" width="760" height="760" alt="Shim Liquidation, resident therapist at APESONUS" />
+    </section>
+
+    <div class="ecg" aria-hidden="true">
+      <svg viewBox="0 0 800 80" preserveAspectRatio="none">
+        <path d="M0 41H176l10-1 11 1 18 0 12-16 14 35 17-51 18 32 15 0 13 0 10-10 12 20 13-10 12 0 18 0H800" />
+      </svg>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var host = document.getElementById('token');
+      if (!host) return;
+      var ca = (host.getAttribute('data-contract') || '').trim();
+      if (!ca) return;
+      var ticker = (host.getAttribute('data-ticker') || 'TOKEN').trim() || 'TOKEN';
+
+      host.innerHTML = '';
+      host.classList.add('token-live');
+
+      var name = document.createElement('span');
+      name.className = 'token-ticker';
+      name.textContent = ticker;
+
+      var row = document.createElement('div');
+      row.className = 'token-row';
+
+      var label = document.createElement('span');
+      label.className = 'token-ca-label';
+      label.textContent = 'CA:';
+
+      var code = document.createElement('code');
+      code.className = 'token-ca';
+      code.textContent = ca;
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'copy-btn';
+      btn.textContent = 'COPY CA';
+      btn.addEventListener('click', function () {
+        var done = function () {
+          btn.textContent = 'COPIED';
+          setTimeout(function () { btn.textContent = 'COPY CA'; }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(ca).then(done, done);
+        } else {
+          var t = document.createElement('textarea');
+          t.value = ca;
+          document.body.appendChild(t);
+          t.select();
+          try { document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(t);
+          done();
+        }
+      });
+
+      row.appendChild(label);
+      row.appendChild(code);
+      row.appendChild(btn);
+      host.appendChild(name);
+      host.appendChild(row);
+    })();
+  </script>
+</body>
+</html>
