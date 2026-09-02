@@ -105,8 +105,11 @@
     <section class="shim" aria-label="Shim Liquidation">
       <div class="halo" aria-hidden="true"></div>
       <div class="halo halo-lime" aria-hidden="true"></div>
+      <div class="haze haze-a" aria-hidden="true"></div>
+      <div class="haze haze-b" aria-hidden="true"></div>
+      <div class="haze haze-floor" aria-hidden="true"></div>
       <div class="ring" aria-hidden="true"></div>
-      <img src="assets/shim.webp" width="760" height="760" alt="Shim Liquidation, resident therapist at APESONUS" />
+      <img src="assets/shim.webp" draggable="false" width="760" height="760" alt="Shim Liquidation, resident therapist at APESONUS" />
       <div class="readout" aria-hidden="true">
         <span>DIAGNOSIS</span>
         <b>DEGENERATION CONFIRMED</b>
@@ -139,6 +142,14 @@
   </main>
 
   <script>
+    // DETERRENCE ONLY. Right-click, drag and long-press are turned off for
+    // the artwork and the page; buttons, links and the copyable contract
+    // address keep working exactly as before.
+    (function () {
+      var editable = function (el) { return el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable); };
+      document.addEventListener('contextmenu', function (e) { if (!editable(e.target)) e.preventDefault(); });
+      document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+    })();
     (function () {
       var host = document.getElementById('token');
       if (!host) return;

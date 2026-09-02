@@ -17,7 +17,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  /* Deterrence, not security: the page is not a text document to highlight.
+     The contract address stays selectable on purpose, see .token-ca. */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
+img { -webkit-user-drag: none; user-drag: none; }
 
 /* ── THE ROOM ───────────────────────────────────────────────────────────── */
 .shell {
@@ -152,7 +158,7 @@ body {
 
 h1 {
   margin: 14px 0 0;
-  font-size: clamp(72px, 11.5vw, 156px);
+  font-size: clamp(72px, 10.2vw, 148px);
   line-height: .86;
   letter-spacing: -.02em;
   font-weight: 900;
@@ -203,7 +209,7 @@ h2 {
 .token-ticker { font-weight: 700; letter-spacing: .3em; }
 .token-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .token-ca-label { color: var(--muted); }
-.token-ca { user-select: all; word-break: break-all; color: var(--text); letter-spacing: 0; }
+.token-ca { user-select: all; -webkit-user-select: all; word-break: break-all; color: var(--text); letter-spacing: 0; }
 .token-copy {
   border: 1px solid rgba(200,255,46,.6); background: transparent; color: var(--lime);
   font-family: var(--mono); font-size: 11px; letter-spacing: .2em; padding: 6px 10px; cursor: pointer;
@@ -264,12 +270,45 @@ h2 {
 .shim img {
   position: relative; z-index: 2;
   width: 100%; height: 100%; object-fit: cover;
-  border-radius: 14px;
-  -webkit-mask-image: radial-gradient(85% 80% at 50% 45%, #000 60%, rgba(0,0,0,.4) 82%, transparent 100%);
-  mask-image: radial-gradient(85% 80% at 50% 45%, #000 60%, rgba(0,0,0,.4) 82%, transparent 100%);
+  /* No rectangle. The edges of the art dissolve into the room in every
+     direction; the feather is wide and the bottom fades out entirely so the
+     figure reads as lit inside the page rather than pasted onto it. */
+  -webkit-mask-image:
+    radial-gradient(70% 66% at 50% 42%, #000 40%, rgba(0,0,0,.55) 66%, transparent 92%),
+    linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image:
+    radial-gradient(70% 66% at 50% 42%, #000 40%, rgba(0,0,0,.55) 66%, transparent 92%),
+    linear-gradient(to bottom, #000 55%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
   animation: floatShim 8s ease-in-out infinite;
   will-change: transform;
+  mix-blend-mode: screen;
+  /* Deterrence only: no drag-out, no long-press save sheet. */
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  pointer-events: none;
 }
+/* HAZE. Two soft plumes and a floor glow behind the figure, on their own
+   layers, breathing slowly. Purple, with a pink undertone, the way the app
+   lights Shim. */
+.haze {
+  position: absolute; z-index: 1; border-radius: 50%; pointer-events: none;
+  filter: blur(46px); will-change: transform, opacity; transform: translateZ(0);
+}
+.haze-a { left: -8%; bottom: 6%; width: 62%; height: 52%;
+  background: radial-gradient(circle, rgba(201,65,255,.42) 0, rgba(109,31,184,.18) 50%, transparent 72%);
+  animation: hazeA 13s ease-in-out infinite; }
+.haze-b { right: -10%; top: 30%; width: 58%; height: 58%;
+  background: radial-gradient(circle, rgba(255,66,183,.26) 0, rgba(201,65,255,.14) 50%, transparent 72%);
+  animation: hazeB 17s ease-in-out infinite; }
+.haze-floor { left: 6%; right: 6%; bottom: -6%; height: 34%; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(109,31,184,.55) 0, transparent 70%);
+  animation: hazeFloor 11s ease-in-out infinite; }
+@keyframes hazeA { 0%,100% { transform: translate3d(0,0,0) scale(1); opacity: .75 } 50% { transform: translate3d(3%,-4%,0) scale(1.08); opacity: 1 } }
+@keyframes hazeB { 0%,100% { transform: translate3d(0,0,0) scale(1); opacity: .6 } 50% { transform: translate3d(-4%,3%,0) scale(1.1); opacity: .9 } }
+@keyframes hazeFloor { 0%,100% { opacity: .7 } 50% { opacity: 1 } }
 @keyframes floatShim { 0%,100% { transform: translate3d(0,0,0) } 50% { transform: translate3d(0,-6px,0) } }
 .halo {
   position: absolute; inset: 6%; z-index: 1; border-radius: 50%;
